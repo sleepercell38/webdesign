@@ -49,7 +49,7 @@ function getdata(dataid,getnextdata){
         if(getnextdata){
             getnextdata();
         }
-    },3000)
+    },3000) 
 }
 
 getdata(234,()=>{
