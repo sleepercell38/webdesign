@@ -8,7 +8,7 @@
 
 //example of async js
 
-/*onsole.log("hello");
+/*console.log("hello");
 console.log("vishal");
 setTimeout(()=>{
     console.log("hello this line is late executed")
