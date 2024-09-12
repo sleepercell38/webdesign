@@ -43,21 +43,46 @@ setTimeout(()=>{
 
 //basically the problem arises when we use callback but we want the output in such a mannner that if line one gets executed after a delay of 2 sec after then the line 2 will be shown as aoutput , no matter that it has been executed earlier but i want the output after the delay of 2 sec only ---------- this problem can be solved by adding multiple nested callbacks ...for eg->
 
-function getdata(dataid,getnextdata){
-    setTimeout(()=>{
-        console.log("the data is- ",dataid);
-        if(getnextdata){
+/*function getdata(dataid, getnextdata) {
+    setTimeout(() => {
+        console.log("the data is- ", dataid);
+        if (getnextdata) {
             getnextdata();
         }
-    },3000)
+    }, 3000)
 }
 
-getdata(234,()=>{
-    console.log('getting the second data.....')
-    getdata(345,()=>{
+getdata(234, () => {
+    console.log('getting the second data.....')              //here inside the getdata the other argument passed is a callback
+    getdata(345, () => {                                        // and callbcak passed is just like an arrow function
         console.log('getting the third data.....')
         getdata(897)
     })
 })
+*/
+
+//after getting the first data getnextdata is called and inside it the  wholefunction is passed as a  callback..while passing a callback function we cannot just pass it simpliy using a normal function notation we have to pass it by using a arrow function
 
 
+
+/* CALLBACK HELL ----- this type of code is known as callback hell basically 
+where we create n numbers of nested callbacks which make the program a bit complex  */
+
+// PROMISES - to solve the problem of callback hell we use promises
+
+let promise = new Promise((resolve, reject
+) => {
+    console.log("this is a promise")
+    resolve(345);                           //basically this is a kind of basic syntax of promise 
+})
+console.log(promise);
+
+/*basically promise have 3 states in it 
+ 1- fulfilled 
+ 2.pending
+ 3.rejected   */
+ // promise is an object in js which contains - promisestate , promiseresult, prototype
+
+ //in the above example (promisestate- fullfilled) and (promiseresult-345)
+
+ 
