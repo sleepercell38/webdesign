@@ -4,7 +4,7 @@ function getdata1(){
     return new Promise((resolve,reject)=>{
         setTimeout(() => {
             console.log("getting some data.....")
-          let error= false;
+          let error= true  ;
           if( error==true){
 
             reject("SOME ERROR OCCURED")
@@ -23,14 +23,12 @@ async function gettingdata1(){
     
         },2000)
         
-    } catch (error) {
+    } catch (state) {
         console.log("E: some error occured")
     }
 }
 
 gettingdata1();
-
-
 
 
 
