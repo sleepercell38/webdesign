@@ -87,12 +87,101 @@ console.log(promise);*/
 
  //example for promises
 
- function getdata(dataid) {
+ /*function getdata(dataid) {
     return new Promise( (resolve,reject)=>{
         setTimeout(() => {
             console.log("the data is- ", dataid);
-            resolve("sucess");                    // basically this statement shows that the promise has been sucessfullly resolved
+            resolve("success");                    // basically this statement shows that the promise has been sucessfully resolved
         }, 3000)
     })
     
 }
+
+let answer =getdata(234);          
+//basically here we are building our own promises but generaly we will get promises from api and we just have to handle them according to our need
+
+//basically handling of promises can be done by only two methods ..thaat are 
+// promise.then(res);  (then )method is used when the promise is fulfilled
+// promise.catch(err);  (catch )method is used when the promise is rejected
+
+function getpromise(){
+    return  new Promise((resolve,reject)=>{
+        console.log("this is a promise")
+        resolve("sucess");
+    })
+}
+
+let result = getpromise();
+result.then(()=> { 
+    setTimeout(()=>{
+        console.log("succesfully completed");
+    },5000)
+})
+result.catch(()=> { 
+    console.log("error occured");
+})
+
+
+
+//promise chaining - basically promise chaining meeans adding nsted promises */
+
+
+/*function getdata(data){
+   return new Promise((resolve,reject)=>{
+    setTimeout(()=>{                                  //here we created a promise 
+        console.log("DATA= ",data);
+        resolve("sucessfully fetches the data")
+},3000)
+   })
+}
+
+getdata(234).then((res)=>{
+    console.log("getting data 2....");                // here we handled our promise 
+    return getdata(456)
+}).then((res)=>{                            //this the proper example of promise chaining
+    console.log("getting data 3....");
+    return getdata(796)
+    
+});
+
+
+
+//async and await keywords
+// basically these make the work of promises more easier instead of using .catch and .then we could use them easily
+
+/* few things to note is 
+1. they always returns promise
+2. await is always called under a async function */ 
+
+//example of async and await 
+
+function getdata(data){
+    return new Promise((resolve,reject)=>{
+     setTimeout(()=>{                                  //here we created a promise 
+         console.log("DATA= ",data);
+         resolve("sucessfully fetches the data")
+ },3000)
+    })
+ }
+
+ async function datacalling(){
+    await getdata(234);
+    console.log("Fetching data 2.....")
+    await getdata(356);
+    console.log("Fetching data 3.....")
+    await getdata(456);
+    console.log("Fetching data 4.....")
+    await getdata(786);
+ }
+
+ datacalling();
+
+
+
+ //hence here comes the end of asynchronous javascript 
+
+ //bascially we learnt async await , promises and callbacks as well
+
+
+
+
