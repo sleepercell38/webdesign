@@ -70,12 +70,12 @@ where we create n numbers of nested callbacks which make the program a bit compl
 
 // PROMISES - to solve the problem of callback hell we use promises
 
-let promise = new Promise((resolve, reject
+/*let promise = new Promise((resolve, reject
 ) => {
     console.log("this is a promise")
     resolve(345);                           //basically this is a kind of basic syntax of promise 
 })
-console.log(promise);
+console.log(promise);*/
 
 /*basically promise have 3 states in it 
  1- fulfilled 
@@ -85,4 +85,14 @@ console.log(promise);
 
  //in the above example (promisestate- fullfilled) and (promiseresult-345)
 
- 
+ //example for promises
+
+ function getdata(dataid) {
+    return new Promise( (resolve,reject)=>{
+        setTimeout(() => {
+            console.log("the data is- ", dataid);
+            resolve("sucess");                    // basically this statement shows that the promise has been sucessfullly resolved
+        }, 3000)
+    })
+    
+}
