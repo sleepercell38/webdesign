@@ -33,21 +33,65 @@ console.log(document.body);
 
 additem = document.querySelector(".add");
 additem.addEventListener("click", () => {
+    
+    let itemName = document.querySelector("#input1").value
+    // here we add value to the input tag to store the data to the constant and then add it to the list item.
+
+
     list = document.createElement("li")
+    list.className="list"
+    text=document.createTextNode(itemName)
+    list.appendChild(text);
 
+    button=document.createElement("button")
+    button.className="btnitems"
+    
+    icon=document.createElement("i")
+    icon.id="remove";
+    icon.className="fa-solid fa-xmark"
 
-    list.innerHTML = `ORANGE <button class="btnitems"><i class="fa-solid fa-xmark"id="remove"></i></button></li>`
+    button.appendChild(icon);
+    list.appendChild(button);
+
     main=document.querySelector(".items").appendChild(list);
 }
 
 )
 
-removeitem=document.querySelectorAll("#remove");
-removeitem.forEach((item)=>{
-    item.addEventListener('click',()=>{
-        main=document.querySelector(".items")
-        li=document.querySelector(".list")
-        main.removeChild(li);
-    })
+// removeitem=document.querySelectorAll("#remove");
+// removeitem.forEach((item)=>{
+//     item.addEventListener('click',()=>{
+//         main=document.querySelector(".items")
+//         li=document.querySelector(".list")
+//         main.removeChild(li);
+//     })
 
+// })
+
+//example of event delegation
+
+main=document.querySelector(".items").addEventListener("click", (event) => {
+    if (event.target.id === "remove") {
+        const listItem = event.target.closest("li"); // Get the closest li element
+        listItem.remove(); // Remove the clicked list item
+    }
+});
+
+//basically on events we have keyboard events aswell
+//we have keypress , keydown, keyup
+//most of the time we use key press only
+
+clr=document.querySelector("#clear")
+items=document.querySelector(".items")
+clr.addEventListener("click",()=>{
+     items.innerHTML="";
 })
+//it also have some properties like key, keycode, code 
+
+
+// additem = document.querySelector(".add");
+// additem.addEventListener("click", ()=>{
+//     let filtervalue=document.querySelector(".filter").value
+    
+//     console.log(filtervalue)
+// })

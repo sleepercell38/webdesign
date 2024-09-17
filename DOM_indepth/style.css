@@ -84,3 +84,16 @@ ul li {
     color: rgb(65, 62, 62);
 }
 
+#clear{
+    
+    margin-top: 40px;
+    background-color: rgb(59, 54, 54);
+    border: none;
+    color: white;
+    border-radius: 2px;
+    padding: 5px;
+}
+#clear{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;}
