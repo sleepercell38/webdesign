@@ -1,22 +1,18 @@
-
+import React from 'react'
 
 const Card = (props) => {
-    
 
-  return (
-    <div>
-         
-            <div className="flex  text-black flex-col bg-slate-100 p-10 font-black text-lg rounded shadow-blue-500/40">
-           
-                 <h1>AUTHOR OF THE BOOK-{props.author}</h1>
-                 <img className="h-80" src={props.download_url} />
-   
-            
-            </div> 
+  if(props.idx!==93){
+    return (
+      <div className='flex  flex-wrap justify-center  items-center w-40 bg-violet-700'>
+        <h1>{props.username}</h1>
+      </div>
+    )
+  }
+  else {
+    return (<h1> vishal is chutiya </h1>)
+  }
 
-    
-    </div>
-  )
 }
 
 export default Card
